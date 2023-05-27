@@ -1,4 +1,5 @@
 import { useState } from "react"
+import There from "./components/There"
 import "./App.css"
 
 function App() {
@@ -59,16 +60,12 @@ function App() {
   }
   return (
     <div className="App">
-      <button
-        onClick={back}
-        className="w-[80px] h-[50px] bg-red-700 absolute right-5 top-5 z-40 hover:bg-blue-500">
-        Back
-      </button>
       <div className="wrapper">
-        <div onClick={thereFun} id="there" className={thereClass}></div>
+        <There />
+        {/* <div onClick={thereFun} id="there" className={thereClass}></div>
         <div onClick={isFun} id="is" className={isClass}></div>
         <div onClick={nothingFun} id="nothing" className={nothingClass}></div>
-        <div onClick={hereFun} id="here" className={hereClass}></div>
+        <div onClick={hereFun} id="here" className={hereClass}></div> */}
       </div>
     </div>
   )
