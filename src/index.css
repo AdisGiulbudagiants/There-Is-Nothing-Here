@@ -6,3 +6,7 @@
   font-family: "Roboto";
   src: url("../font/RobotoMono-Medium.ttf");
 }
+
+body {
+  overflow: hidden;
+}
