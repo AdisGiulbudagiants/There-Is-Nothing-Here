@@ -1,6 +1,7 @@
 import { useState } from "react"
 import There from "./components/There"
 import Is from "./components/Is"
+import Nothing from "./components/Nothing"
 import "./App.css"
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
       <div className="wrapper">
         <There />
         <Is />
+        <Nothing />
         {/* <div onClick={thereFun} id="there" className={thereClass}></div>
         <div onClick={isFun} id="is" className={isClass}></div>
         <div onClick={nothingFun} id="nothing" className={nothingClass}></div>
