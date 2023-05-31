@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Back from "./Back"
 import styles from "./Is.module.css"
 
 const Is = () => {
@@ -21,7 +22,7 @@ const Is = () => {
   return (
     <>
       <button onClick={back} className={button}>
-        Back
+        <Back />
       </button>
       <div onClick={isFun} id="is" className={isClass}>
         <h1>is</h1>

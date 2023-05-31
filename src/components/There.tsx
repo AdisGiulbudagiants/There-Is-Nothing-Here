@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Back from "./Back"
 import styles from "./There.module.css"
 
 const There = () => {
@@ -22,7 +23,7 @@ const There = () => {
   return (
     <>
       <button onClick={back} className={button}>
-        Back
+        <Back />
       </button>
       <div onClick={thereFun} className={thereClass}>
         <h1>There</h1>

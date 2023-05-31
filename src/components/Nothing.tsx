@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Back from "./Back"
 import styles from "./Nothing.module.css"
 
 const Nothing = () => {
@@ -21,7 +22,7 @@ const Nothing = () => {
   return (
     <>
       <button onClick={back} className={button}>
-        Back
+        <Back />
       </button>
       <div onClick={nothingFun} id="nothing" className={nothingClass}>
         <h1>nothing</h1>
