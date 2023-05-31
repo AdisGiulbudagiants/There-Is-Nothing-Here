@@ -23,7 +23,9 @@ const Nothing = () => {
       <button onClick={back} className={button}>
         Back
       </button>
-      <div onClick={nothingFun} id="nothing" className={nothingClass}></div>
+      <div onClick={nothingFun} id="nothing" className={nothingClass}>
+        <h1>nothing</h1>
+      </div>
     </>
   )
 }

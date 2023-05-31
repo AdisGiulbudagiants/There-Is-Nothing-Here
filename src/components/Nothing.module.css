@@ -1,11 +1,11 @@
-.animNothing {
-  background: url("./assets/3.jpg");
-  @apply h-[100vh] w-[100vw] bg-cover bg-center absolute;
-}
-
 .nothing {
   background: url("./assets/3.jpg");
-  @apply bg-cover bg-center hover:cursor-pointer hover:border-white hover:border hover:border-l-0 hover:border-r-0;
+  @apply bg-cover bg-center flex justify-center items-center grayscale hover:grayscale-0 hover:cursor-pointer hover:border-white hover:border hover:border-l-0 hover:border-r-0;
+}
+
+.animNothing {
+  background: url("./assets/3.jpg");
+  @apply h-[100vh] w-[100vw] bg-cover bg-center absolute z-30 flex justify-center items-center;
 }
 
 .button {

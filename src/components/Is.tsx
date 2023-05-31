@@ -23,7 +23,9 @@ const Is = () => {
       <button onClick={back} className={button}>
         Back
       </button>
-      <div onClick={isFun} id="is" className={isClass}></div>
+      <div onClick={isFun} id="is" className={isClass}>
+        <h1>is</h1>
+      </div>
     </>
   )
 }

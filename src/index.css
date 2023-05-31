@@ -10,3 +10,7 @@
 body {
   overflow: hidden;
 }
+
+h1 {
+  @apply text-white font-Roboto text-lg select-none;
+}

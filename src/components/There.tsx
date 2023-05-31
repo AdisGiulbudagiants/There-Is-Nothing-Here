@@ -24,7 +24,9 @@ const There = () => {
       <button onClick={back} className={button}>
         Back
       </button>
-      <div onClick={thereFun} className={thereClass}></div>
+      <div onClick={thereFun} className={thereClass}>
+        <h1>There</h1>
+      </div>
     </>
   )
 }

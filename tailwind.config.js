@@ -5,7 +5,7 @@ module.exports = {
     fontFamily: {
       Roboto: ["Roboto"],
     },
-    fontSize: { sm: "0,75rem", lg: "1,375rem" },
+    fontSize: { sm: "0.75rem", lg: "1.375rem" },
     textColor: {
       white: "#fff",
     },

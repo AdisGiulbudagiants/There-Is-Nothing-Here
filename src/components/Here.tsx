@@ -23,7 +23,9 @@ const Here = () => {
       <button onClick={back} className={button}>
         Back
       </button>
-      <div onClick={hereFun} id="here" className={hereClass}></div>
+      <div onClick={hereFun} id="here" className={hereClass}>
+        <h1>here</h1>
+      </div>
     </>
   )
 }
