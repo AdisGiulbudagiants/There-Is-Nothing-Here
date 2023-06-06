@@ -1,15 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @font-face {
   font-family: "Roboto";
-  src: url("../font/RobotoMono-Medium.ttf");
+  src: url("./font/RobotoMono-Medium.ttf");
+}
+body {
+  @apply overflow-hidden bg-black;
 }
 
-body {
-  overflow: hidden;
-  background: #000;
+.App {
+  @apply xxl:h-[100vh] xxl:grid xxl:grid-cols-4 xl:h-[100vh] xl:grid xl:grid-cols-4 lg:h-[100vh] lg:grid lg:grid-cols-2 md:grid md:grid-cols-2;
 }
 
 h1 {

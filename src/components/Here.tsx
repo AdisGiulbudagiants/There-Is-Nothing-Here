@@ -4,6 +4,7 @@ import styles from "./Here.module.css"
 
 const Here = () => {
   const here = useRef(null)
+  const wdt = window.innerWidth
   let tl: any = null
 
   useEffect(() => {
@@ -17,12 +18,23 @@ const Here = () => {
   function hereFun() {
     if (tl && !tl.reversed()) {
       tl.reverse()
+    } else if (wdt <= 768) {
+      tl = gsap.to(here.current, {
+        duration: 1,
+        ease: "power3.inOut",
+        x: "-50vw",
+        y: "-50vh",
+        width: "100vw",
+        height: "100vh",
+        zIndex: 40,
+      })
     } else {
       tl = gsap.to(here.current, {
         duration: 1,
         ease: "power3.inOut",
         x: "-75vw",
         width: "100vw",
+        height: "100vh",
         zIndex: 40,
       })
     }

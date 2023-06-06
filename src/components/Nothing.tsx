@@ -4,6 +4,7 @@ import styles from "./Nothing.module.css"
 
 const Nothing = () => {
   const nothing = useRef(null)
+  const wdt = window.innerWidth
   let tl: any = null
 
   useEffect(() => {
@@ -17,12 +18,22 @@ const Nothing = () => {
   function nothingFun() {
     if (tl && !tl.reversed()) {
       tl.reverse()
+    } else if (wdt <= 768) {
+      tl = gsap.to(nothing.current, {
+        duration: 1,
+        ease: "power3.inOut",
+        y: "-50vh",
+        width: "100vw",
+        height: "100vh",
+        zIndex: 30,
+      })
     } else {
       tl = gsap.to(nothing.current, {
         duration: 1,
         ease: "power3.inOut",
         x: "-50vw",
         width: "100vw",
+        height: "100vh",
         zIndex: 30,
       })
     }

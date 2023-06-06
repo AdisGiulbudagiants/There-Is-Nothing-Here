@@ -4,6 +4,7 @@ import styles from "./Is.module.css"
 
 const Is = () => {
   const is = useRef(null)
+  const wdt = window.innerWidth
   let tl: any = null
 
   useEffect(() => {
@@ -17,12 +18,22 @@ const Is = () => {
   function isFun() {
     if (tl && !tl.reversed()) {
       tl.reverse()
+    } else if (wdt <= 768) {
+      tl = gsap.to(is.current, {
+        duration: 1,
+        ease: "power3.inOut",
+        x: "-50vw",
+        width: "100vw",
+        height: "100vh",
+        zIndex: 10,
+      })
     } else {
       tl = gsap.to(is.current, {
         duration: 1,
         ease: "power3.inOut",
         x: "-25vw",
         width: "100vw",
+        height: "100vh",
         zIndex: 10,
       })
     }

@@ -1,4 +1,7 @@
 .is {
   background: url("./assets/2.jpg");
-  @apply min-w-[25vw] bg-cover bg-center flex justify-center items-center grayscale hover:grayscale-0  hover:cursor-pointer hover:border-white hover:border hover:border-l-0 hover:border-r-0;
+  @apply bg-cover bg-center flex justify-center items-center grayscale xxl:min-w-[25vw] xxl:h-[100vh] xl:min-w-[25vw] xl:h-[100vh] lg:h-[50vh] md:h-[50vh];
+}
+.is:hover {
+  @apply grayscale-0 cursor-pointer border-white border-l-0 border border-r-0 border-b-0;
 }
