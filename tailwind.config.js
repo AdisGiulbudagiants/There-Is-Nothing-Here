@@ -10,20 +10,6 @@ module.exports = {
     textColor: {
       white: "#fff",
     },
-    keyframes: {
-      slowRotate: {
-        "0%": { transform: "rotate(0deg)" },
-        "100%": { transform: "rotate(-45deg)" },
-      },
-      reverseSlowRotate: {
-        "0%": { transform: "rotate(-45deg)" },
-        "100%": { transform: "rotate(0deg)" },
-      },
-    },
-    animation: {
-      slow: "slowRotate 0.5s ease-out forwards",
-      reverseSlow: "reverseSlowRotate 0.5s ease-in forwards",
-    },
     screens: {
       sm: "320px",
       md: "480px",

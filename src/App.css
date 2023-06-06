@@ -1,7 +1,3 @@
 .App {
-  @apply h-[100vh];
-}
-
-.wrapper {
   @apply grid grid-cols-4 h-[100vh];
 }

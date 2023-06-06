@@ -1,31 +1,35 @@
-import { useState } from "react"
-import Back from "./Back"
+import { useRef, useEffect } from "react"
+import { gsap } from "gsap"
 import styles from "./There.module.css"
 
 const There = () => {
-  const [thereClass, setThereClass] = useState(styles.there)
-  const [button, setButton] = useState("hidden")
+  const there = useRef(null)
+  let tl: any = null
+
+  useEffect(() => {
+    gsap.fromTo(
+      there.current,
+      { y: 1000, opacity: 0 },
+      { duration: 2, opacity: 1, y: 0 }
+    )
+  }, [])
 
   function thereFun() {
-    if (thereClass) {
-      setThereClass(styles.animThere)
-      setButton(styles.button)
-    }
-  }
-
-  function back() {
-    if (thereClass === styles.animThere) {
-      setThereClass(styles.there)
-      setButton("hidden")
+    if (tl && !tl.reversed()) {
+      tl.reverse()
+    } else {
+      tl = gsap.to(there.current, {
+        duration: 1,
+        ease: "power3.inOut",
+        width: "100vw",
+        zIndex: 20,
+      })
     }
   }
 
   return (
     <>
-      <button onClick={back} className={button}>
-        <Back />
-      </button>
-      <div onClick={thereFun} className={thereClass}>
+      <div ref={there} onClick={thereFun} className={styles.there}>
         <h1>There</h1>
       </div>
     </>

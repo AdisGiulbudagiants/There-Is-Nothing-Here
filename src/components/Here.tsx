@@ -1,30 +1,36 @@
-import { useState } from "react"
-import Back from "./Back"
+import { useRef, useEffect } from "react"
+import { gsap } from "gsap/gsap-core"
 import styles from "./Here.module.css"
 
 const Here = () => {
-  const [hereClass, setHereClass] = useState(styles.here)
-  const [button, setButton] = useState("hidden")
+  const here = useRef(null)
+  let tl: any = null
+
+  useEffect(() => {
+    gsap.fromTo(
+      here.current,
+      { y: 1000, opacity: 0 },
+      { duration: 2, opacity: 1, y: 0, delay: 0.75 }
+    )
+  }, [])
 
   function hereFun() {
-    if (hereClass) {
-      setHereClass(styles.animHere)
-      setButton(styles.button)
+    if (tl && !tl.reversed()) {
+      tl.reverse()
+    } else {
+      tl = gsap.to(here.current, {
+        duration: 1,
+        ease: "power3.inOut",
+        x: "-75vw",
+        width: "100vw",
+        zIndex: 40,
+      })
     }
   }
 
-  function back() {
-    if (hereClass === styles.animHere) {
-      setHereClass(styles.here)
-      setButton("hidden")
-    }
-  }
   return (
     <>
-      <button onClick={back} className={button}>
-        <Back />
-      </button>
-      <div onClick={hereFun} id="here" className={hereClass}>
+      <div ref={here} onClick={hereFun} className={styles.here}>
         <h1>here</h1>
       </div>
     </>

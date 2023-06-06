@@ -1,30 +1,36 @@
-import { useState } from "react"
-import Back from "./Back"
+import { useRef, useEffect } from "react"
+import { gsap } from "gsap/gsap-core"
 import styles from "./Nothing.module.css"
 
 const Nothing = () => {
-  const [nothingClass, setNothingClass] = useState(styles.nothing)
-  const [button, setButton] = useState("hidden")
+  const nothing = useRef(null)
+  let tl: any = null
+
+  useEffect(() => {
+    gsap.fromTo(
+      nothing.current,
+      { y: 1000, opacity: 0 },
+      { duration: 2, opacity: 1, y: 0, delay: 0.5 }
+    )
+  }, [])
 
   function nothingFun() {
-    if (nothingClass) {
-      setNothingClass(styles.animNothing)
-      setButton(styles.button)
+    if (tl && !tl.reversed()) {
+      tl.reverse()
+    } else {
+      tl = gsap.to(nothing.current, {
+        duration: 1,
+        ease: "power3.inOut",
+        x: "-50vw",
+        width: "100vw",
+        zIndex: 30,
+      })
     }
   }
 
-  function back() {
-    if (nothingClass === styles.animNothing) {
-      setNothingClass(styles.nothing)
-      setButton("hidden")
-    }
-  }
   return (
     <>
-      <button onClick={back} className={button}>
-        <Back />
-      </button>
-      <div onClick={nothingFun} id="nothing" className={nothingClass}>
+      <div ref={nothing} onClick={nothingFun} className={styles.nothing}>
         <h1>nothing</h1>
       </div>
     </>

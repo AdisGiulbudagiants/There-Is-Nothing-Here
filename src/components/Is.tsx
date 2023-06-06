@@ -1,30 +1,36 @@
-import { useState } from "react"
-import Back from "./Back"
+import { useRef, useEffect } from "react"
+import { gsap } from "gsap/gsap-core"
 import styles from "./Is.module.css"
 
 const Is = () => {
-  const [isClass, setIsClass] = useState(styles.is)
-  const [button, setButton] = useState("hidden")
+  const is = useRef(null)
+  let tl: any = null
+
+  useEffect(() => {
+    gsap.fromTo(
+      is.current,
+      { y: 1000, opacity: 0 },
+      { duration: 2, opacity: 1, y: 0, delay: 0.25 }
+    )
+  }, [])
 
   function isFun() {
-    if (isClass) {
-      setIsClass(styles.animIs)
-      setButton(styles.button)
+    if (tl && !tl.reversed()) {
+      tl.reverse()
+    } else {
+      tl = gsap.to(is.current, {
+        duration: 1,
+        ease: "power3.inOut",
+        x: "-25vw",
+        width: "100vw",
+        zIndex: 10,
+      })
     }
   }
 
-  function back() {
-    if (isClass === styles.animIs) {
-      setIsClass(styles.is)
-      setButton("hidden")
-    }
-  }
   return (
     <>
-      <button onClick={back} className={button}>
-        <Back />
-      </button>
-      <div onClick={isFun} id="is" className={isClass}>
+      <div ref={is} onClick={isFun} id="is" className={styles.is}>
         <h1>is</h1>
       </div>
     </>
