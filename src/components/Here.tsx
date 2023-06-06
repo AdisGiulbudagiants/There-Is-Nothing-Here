@@ -4,7 +4,7 @@ import styles from "./Here.module.css"
 
 const Here = () => {
   const here = useRef(null)
-  const wdt = window.innerWidth
+  let wdt = window.innerWidth
   let tl: any = null
 
   useEffect(() => {

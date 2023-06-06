@@ -4,7 +4,7 @@ import styles from "./Nothing.module.css"
 
 const Nothing = () => {
   const nothing = useRef(null)
-  const wdt = window.innerWidth
+  let wdt = window.innerWidth
   let tl: any = null
 
   useEffect(() => {
